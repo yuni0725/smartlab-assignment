@@ -8,6 +8,7 @@ import reset from "styled-reset";
 import { useEffect, useState } from "react";
 import Loading from "./components/loading-screen";
 import { auth } from "./firebase";
+import Task from "./routes/task";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "/task",
+        element: <Task />,
       },
     ],
   },
@@ -35,7 +40,8 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing : border-box;
         color : white;
-        --highlight-color : #1E90FF
+        --highlight-color : #1E90FF;
+        background-color : black;
       }
       body {
         font-family : Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif

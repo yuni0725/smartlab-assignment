@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 const Text = styled.span`
   font-size: 24px;
   font-weight: 600;
-  color: black;
 `;
 
 export default function Loading() {
