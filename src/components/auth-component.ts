@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Navibar = styled.div`
-  background-color: black;
   height: 100%;
   width: 100%;
 
@@ -26,8 +25,12 @@ export const NaviText = styled.span`
 export const FormContent = styled.div`
   height: 100%;
   width: 100%;
-  background: linear-gradient(#2d2d2d, #000000);
-
+  background: rgb(18, 18, 18);
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(32, 32, 32, 1) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +39,6 @@ export const FormContent = styled.div`
 export const Form = styled.form`
   width: 50vw;
   height: 500px;
-  background-color: black;
 
   display: flex;
   align-items: center;
@@ -66,7 +68,6 @@ export const Input = styled.input`
 
   border-radius: 5px;
   border: 1px solid #8c8c8c;
-  background-color: black;
 
   padding-left: 10px;
 
@@ -117,7 +118,8 @@ export const SubmitBtn = styled.input`
   }
 
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #121212;
 `;
 
 export const Switcher = styled.span`

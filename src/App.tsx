@@ -40,8 +40,8 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing : border-box;
         color : white;
-        --highlight-color : #1E90FF;
-        background-color : black;
+        --highlight-color : #53e3c3;
+        background-color : #121212;
       }
       body {
         font-family : Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif

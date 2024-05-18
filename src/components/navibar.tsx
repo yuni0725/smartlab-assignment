@@ -6,10 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
+  height: 8vh;
 `;
 
 const TitleBox = styled.div`
-  background-color: black;
   height: 100%;
   width: 100%;
 
@@ -68,11 +68,12 @@ const LogOutBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 0px;
 `;
 
 const LogOutBtn = styled.button`
   width: 80%;
-  height: 70%;
+  height: 100%;
   background-color: var(--highlight-color);
   font-size: 12px;
 
@@ -92,6 +93,8 @@ const LogOutBtn = styled.button`
 
 const LogOutSpan = styled.span`
   background-color: transparent;
+  color: #121212;
+  font-weight: 600;
 `;
 
 const Profile = styled.div`
