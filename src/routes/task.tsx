@@ -1,45 +1,31 @@
-import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../firebase";
-import { useEffect, useState } from "react";
-import TaskMenuTable from "../components/task-menu-table";
+import { useLocation } from "react-router-dom";
+import TaskMarkdownRender from "../components/task-markdown-render";
 import styled from "styled-components";
-
-export interface TaskType {
-  difficulty: number;
-  fileID: string;
-  fileName: string;
-  readOnly: boolean;
-}
+import TaskReadWrite from "../components/task-readWrite";
 
 const Wrapper = styled.div`
-  width: 100vw;
+  width: 100%;
+  height: 100%;
+
+  margin-top: 20px;
 
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default function Task() {
-  const [taskOfList, setTaskOfList] = useState<TaskType[]>([]);
-  const getTaskData = async () => {
-    const TaskQuery = query(collection(db, "week1"));
-    const snapshot = await getDocs(TaskQuery);
-    const tasks = snapshot.docs.map((doc) => {
-      const { difficulty, fileID, fileName, readOnly } = doc.data();
-      return { difficulty, fileID, fileName, readOnly };
-    });
-    setTaskOfList(tasks);
-  };
-
-  useEffect(() => {
-    getTaskData();
-  }, []);
-  console.log(typeof taskOfList);
+  const readOnly = useLocation().state.readOnly;
 
   return (
-    <Wrapper>
-      <TaskMenuTable week="1" value={taskOfList}></TaskMenuTable>
-      <TaskMenuTable week="1" value={taskOfList}></TaskMenuTable>
-      <TaskMenuTable week="1" value={taskOfList}></TaskMenuTable>
-    </Wrapper>
+    <>
+      {readOnly ? (
+        <Wrapper>
+          <TaskMarkdownRender></TaskMarkdownRender>
+        </Wrapper>
+      ) : (
+        <TaskReadWrite></TaskReadWrite>
+      )}
+    </>
   );
 }

@@ -7,8 +7,9 @@ import { createGlobalStyle } from "styled-components";
 import { useEffect, useState } from "react";
 import Loading from "./components/loading-screen";
 import { auth } from "./firebase";
-import Task from "./routes/task";
 import { reset } from "styled-reset";
+import TaskMenu from "./routes/task-menu";
+import Task from "./routes/task";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/task",
+        element: <TaskMenu />,
+      },
+      {
+        path: "/task/:fileID",
         element: <Task />,
       },
     ],
@@ -40,11 +45,14 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing : border-box;
         color : white;
-        --highlight-color : #53e3c3;
+        --highlight-color : #C28FFF;
         background-color : #121212;
       }
       body {
         font-family : Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        &::-webkit-scrollbar {
+          display : none;
+        }
       }
 `;
 

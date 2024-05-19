@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TaskType } from "../routes/task";
+import { TaskType } from "../routes/task-menu";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -19,22 +19,72 @@ const Wrapper = styled.div`
   grid-template-rows: 1fr 2fr 1fr;
 `;
 
-const Header = styled.div``;
-
-const Main = styled.div`
-  background-color: gray;
+const Header = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: transparent;
 `;
 
-const Footer = styled.div``;
+const Main = styled.div`
+  background-color: transparent;
+`;
 
-const ContentTitle = styled.h1``;
+const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-const Difficulty = styled.h1``;
+  background-color: transparent;
+`;
 
-const StyledLink = styled(Link)``;
+const ContentTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+const Difficulty = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+
+  font-size: 16px;
+  font-weight: 300;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--highlight-color);
+
+  font-weight: 500;
+
+  background-color: transparent;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  cursor: pointer;
+`;
 
 function getStarWithDifficulty(difficulty: number) {
-  return "";
+  if (difficulty == 0) {
+    return "☆☆☆";
+  } else if (difficulty == 1) {
+    return "★☆☆";
+  } else if (difficulty == 2) {
+    return "★★☆";
+  } else if (difficulty == 3) {
+    return "★★★";
+  }
 }
 
 export default function TaskMenuTableContent({
@@ -46,17 +96,13 @@ export default function TaskMenuTableContent({
   return (
     <Wrapper>
       <Header>
-        <ContentTitle>
-          <h1>{fileName}</h1>
-        </ContentTitle>
-        <Difficulty>
-          <h1>{difficulty}</h1>
-        </Difficulty>
+        <ContentTitle>{fileName}</ContentTitle>
+        <Difficulty>{getStarWithDifficulty(difficulty)}</Difficulty>
       </Header>
       <Main></Main>
       <Footer>
-        <StyledLink>
-          <h1>{fileID}</h1>
+        <StyledLink to={fileID} state={{ readOnly: readOnly }}>
+          {"Link ->"}
         </StyledLink>
       </Footer>
     </Wrapper>

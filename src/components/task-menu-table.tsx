@@ -33,6 +33,15 @@ const Content = styled.div`
   overflow-x: scroll;
 
   margin-bottom: 30px;
+
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #646464;
+    border-radius: 10px;
+  }
 `;
 
 type TaskMenuTableProps = {

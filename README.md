@@ -36,3 +36,5 @@ export default {
 - npm i styled-reset
 - npm i @types/styled-components -D
 - npm install firebase@10.1.0
+- npm install @monaco-editor/react
+- npm install @uiw/react-markdown-preview --save
