@@ -4,11 +4,11 @@ import CreateAccount from "./routes/create-account";
 import Login from "./routes/login";
 import Home from "./routes/home";
 import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
 import { useEffect, useState } from "react";
 import Loading from "./components/loading-screen";
 import { auth } from "./firebase";
 import Task from "./routes/task";
+import { reset } from "styled-reset";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +44,7 @@ const GlobalStyles = createGlobalStyle`
         background-color : #121212;
       }
       body {
-        font-family : Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        font-family : Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       }
 `;
 
