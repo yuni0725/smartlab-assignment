@@ -10,11 +10,16 @@ import { auth } from "./firebase";
 import { reset } from "styled-reset";
 import TaskMenu from "./routes/task-menu";
 import Task from "./routes/task";
+import ProtectedRoute from "./components/auth-protected-route";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "",
