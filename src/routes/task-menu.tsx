@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 export default function TaskMenu() {
   const [taskOfListFirst, setTaskOfListFirst] = useState<TaskType[]>([]);
   const [taskOfListSecond, setTaskOfListSecond] = useState<TaskType[]>([]);
-  //const [taskOfListThird, setTaskOfListThird] = useState<TaskType[]>([]);
+  const [taskOfListThird, setTaskOfListThird] = useState<TaskType[]>([]);
   const getTaskData = async (week_num: number) => {
     const TaskQuery = query(collection(db, `week${week_num}`));
     const snapshot = await getDocs(TaskQuery);
@@ -36,19 +36,21 @@ export default function TaskMenu() {
     } else if (week_num === 2) {
       setTaskOfListSecond(tasks);
     } else if (week_num === 3) {
-      //setTaskOfListThird(tasks);
+      setTaskOfListThird(tasks);
     }
   };
 
   useEffect(() => {
     getTaskData(1);
     getTaskData(2);
+    getTaskData(3);
   }, []);
 
   return (
     <Wrapper>
       <TaskMenuTable week="1" value={taskOfListFirst}></TaskMenuTable>
       <TaskMenuTable week="2" value={taskOfListSecond}></TaskMenuTable>
+      <TaskMenuTable week="3" value={taskOfListThird}></TaskMenuTable>
     </Wrapper>
   );
 }
